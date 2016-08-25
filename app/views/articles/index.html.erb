@@ -1,0 +1,13 @@
+<div class="container article-archive">
+    <div class="row">
+        <div class="col-md-12">
+            <% @articles.each do |f|%>
+                <h2 class="article-title"><%= link_to f.title, f %></h2>
+                <%= f.user.email %>
+                <p>Created at <%= f.created_at %></p><br>
+                <%= raw(f.body) %>
+                <hr>
+            <% end %>
+        </div>
+    </div>
+</div>

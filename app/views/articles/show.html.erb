@@ -1,0 +1,17 @@
+<div class="container article-archive">
+    <div class="row">
+        <div class="col-md-12">
+			<% if user_signed_in? %>
+				<p class="navbar-text pull-right">
+				<%= link_to 'Edit', edit_article_path(@article) %><br>
+				<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</p>
+			<% end %>
+            <h2 class="article-title"><%= @article.title %></h2>
+            <%= @article.user.email %>
+            <p>Created at <%= @article.created_at %></p><br>
+            <%= raw(@article.body) %>
+            <hr>
+        </div>
+    </div>
+</div>

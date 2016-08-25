@@ -1,0 +1,14 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.article-archive{
+	margin-top: 50px;
+}
+.article-title{
+	text-decoration: none;
+}
+.article-title :hover{
+	text-decoration: none;
+	background-color: transparent;
+	color: #000;
+}
