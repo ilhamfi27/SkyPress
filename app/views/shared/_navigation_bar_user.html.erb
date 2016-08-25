@@ -8,14 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <%= link_to 'SkyPress', root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><%= link_to 'Articles', articles_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   root 'landing_page#index'
   # get 'home' => 'landing_page#index'
   # The priority is based upon order of creation: first created -> highest priority.

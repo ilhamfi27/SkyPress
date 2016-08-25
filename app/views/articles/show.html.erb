@@ -12,6 +12,15 @@
             <p>Created at <%= @article.created_at %></p><br>
             <%= raw(@article.body) %>
             <hr>
+            <h3><%= @article.comments.count %> Comments</h3>
+            <% @article.comments.each do |comment| %>
+            	<div class="well">
+            		<h4><%= comment.user.email%></h4><br>
+            		<p><%= comment.body %></p>
+            	</div>
+            	<br>
+            <% end %>
+            <%= render 'comments/form' %>
         </div>
     </div>
 </div>
