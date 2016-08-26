@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  get 'profile', to: 'user_profile#index'
   root 'landing_page#index'
   # get 'home' => 'landing_page#index'
   # The priority is based upon order of creation: first created -> highest priority.
