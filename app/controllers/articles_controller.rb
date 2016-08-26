@@ -5,7 +5,11 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.joins(:user).order('created_at DESC')
+    if user_signed_in?
+      @articles = Article.joins(:user).where(author: current_user.id).order('created_at DESC')
+    else
+      @articles = Article.joins(:user).order('created_at DESC')
+    end
   end
 
   # GET /articles/1
