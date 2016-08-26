@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <% @articles.each do |f|%>
                 <h2 class="article-title"><%= link_to f.title, f %></h2>
-                <%= f.user.email %>
+                Author: <%= f.user.name %>
                 <p>Created at <%= f.created_at %></p><br>
                 <%= raw(f.body) %>
                 <hr>
