@@ -4,13 +4,13 @@
             <h2>Name: <%= @user_profile.name %></h2>
             <h2>Email: <%= @user_profile.email %></h2>
             <h2>Gender: <%= @user_profile.gender %></h2>
-            <h2>Last Sign In: <%= time_ago_in_words(@user_profile.last_sign_in_at) %></h2>
+            <h2>Last Sign In: <%= time_ago_in_words(@user_profile.last_sign_in_at) %> ago</h2>
         </div>
         <div class="col-md-12">
         	<h2>Articles</h2>
             <% @articles.each do |f|%>
                 <h2 class="article-title"><%= link_to f.title, f %></h2>
-                <p>Created at <%= time_ago_in_words(f.created_at) %></p>
+                <p>Created at <%= time_ago_in_words(f.created_at) %> ago</p>
                 <hr>
             <% end %>
         </div>

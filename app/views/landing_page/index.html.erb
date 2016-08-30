@@ -9,7 +9,7 @@
             <% @articles.each do |f|%>
                 <h2 class="article-title"><%= link_to f.title, f %></h2>
                 Author: <%= link_to f.user.name, profile_path(f.user.id)%>
-                <p>Created at <%= time_ago_in_words(f.created_at) %></p><br>
+                <p>Created at <%= time_ago_in_words(f.created_at) %> ago</p><br>
                 <%= raw(f.body[0..1200]) %>... <%= link_to 'Read More', f %>
                 <hr>
             <% end %>

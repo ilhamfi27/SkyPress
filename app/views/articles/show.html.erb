@@ -11,26 +11,14 @@
 			<% end %>
             <h2 class="article-title"><%= @article.title %></h2>
             Author: <%= link_to @article.user.name, profile_path(@article.user.id)%>
-            <p>Created at <%= time_ago_in_words(@article.created_at) %></p><br>
+            <p>Created at <%= time_ago_in_words(@article.created_at) %> ago</p><br>
             <%= raw(@article.body) %>
             <h4>Tags</h4>
             <%= render @article.tags %>
             <hr>
-            <h3><%= @article.comments.count %> Comments</h3>
-            <% @article.comments.each do |comment| %>
-            	<div class="well">
-                    <%# if comment.user.id? %>
-            		<% if comment.commenter? %>
-                    <h4><%= link_to comment.user.name, profile_path(comment.user.id)%></h4><br>
-                    <% else %>
-                    <h4><%= comment.email%></h4><br>
-                    <% end %>
-                    <p><%= comment.body %></p>
-                    <p><%= time_ago_in_words(comment.created_at) %></p>
-            	</div>
-            	<br>
-            <% end %>
-            <%= render 'comments/form' %>
+            <div id="comments">
+                <%= render 'comments/show' %>
+            </div>
         </div>
     </div>
 </div>
