@@ -13,6 +13,8 @@
             Author: <%= link_to @article.user.name, profile_path(@article.user.id)%>
             <p>Created at <%= time_ago_in_words(@article.created_at) %></p><br>
             <%= raw(@article.body) %>
+            <h4>Tags</h4>
+            <%= render @article.tags %>
             <hr>
             <h3><%= @article.comments.count %> Comments</h3>
             <% @article.comments.each do |comment| %>

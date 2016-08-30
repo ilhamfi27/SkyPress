@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  resources :tags, only:[:index, :show]
   get '/profile/:id', to: 'user_profile#index', as: 'profile'
   root 'landing_page#index'
   # get 'home' => 'landing_page#index'
