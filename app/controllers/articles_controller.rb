@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     if user_signed_in?
       @articles = Article.joins(:user).where(author: current_user.id).order('created_at DESC').page(params[:page]).per(10)
     else
-      @articles = Article.joins(:user).order('created_at DESC').page(params[:page]).per(20)
+      @articles = Article.joins(:user).order('created_at DESC').page(params[:page]).per(10)
     end
   end
 

@@ -16,12 +16,12 @@
   <% else %>
     <div class="field">
       <%= f.label :email %><br>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class: 'form-control' %>
     </div>
   <% end %>
   <div class="field">
     <%= f.label :comment %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: 'form-control' %>
   </div>
   <div class="actions">
     <%= f.submit %>

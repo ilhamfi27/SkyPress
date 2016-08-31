@@ -12,7 +12,9 @@
             <h2 class="article-title"><%= @article.title %></h2>
             Author: <%= link_to @article.user.name, profile_path(@article.user.id)%>
             <p>Created at <%= time_ago_in_words(@article.created_at) %> ago</p><br>
-            <%= raw(@article.body) %>
+            <div class="article-body">
+                <%= raw(@article.body) %>
+            </div>
             <h4>Tags</h4>
             <%= render @article.tags %>
             <hr>
