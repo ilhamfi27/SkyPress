@@ -11,17 +11,16 @@
     </div>
   <% end %>
   <% if user_signed_in? %>
-    <%= f.hidden_field :commenter, value: current_user.id %>
-    <%= f.hidden_field :email, value: current_user.email %>
+    
   <% else %>
     <div class="field">
       <%= f.label :email %><br>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', id: 'comment_email' %>
     </div>
   <% end %>
   <div class="field">
     <%= f.label :leave_a_comment %><br>
-    <%= f.text_area :body, class: 'form-control' %>
+    <%= f.text_area :body, class: 'form-control', id: 'comment_body' %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" , class:'btn btn-primary' %>

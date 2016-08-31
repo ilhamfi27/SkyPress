@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, :controllers => { omniauth_callbacks: "callbacks" }#, registrations: "registrations" }
   resources :articles do
-    resources :comments, only:[:show, :index, :new]
+    resources :comments#, only:[:show, :index, :new]
   end
   resources :tags, only:[:index, :show]
   get '/profile/:id', to: 'user_profile#index', as: 'profile'

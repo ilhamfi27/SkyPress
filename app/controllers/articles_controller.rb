@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if user_signed_in?
-      @articles = Article.joins(:user).where(author: current_user.id).order('created_at DESC').page(params[:page]).per(10)
+      @articles = Article.joins(:user).where(current_user.id).order('created_at DESC').page(params[:page]).per(10)
     else
       @articles = Article.joins(:user).order('created_at DESC').page(params[:page]).per(10)
     end
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   # GET /articles/1/edit
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -75,6 +75,6 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       # author: current_user.id
-      params.require(:article).permit(:title, :body, :author, :tag_list)
+      params.require(:article).permit(:title, :body, :tag_list)
     end
 end

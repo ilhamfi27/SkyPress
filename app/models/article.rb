@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	belongs_to :user, foreign_key: 'author', dependent: :destroy
+	belongs_to :user
 	has_many :comments
 	acts_as_taggable_on :tags
 end

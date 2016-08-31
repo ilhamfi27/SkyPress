@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = current_user.comments.new
   end
 
   # GET /comments/1/edit
@@ -26,8 +26,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params)
-
+    @comment = @article.comments.new(comment_params)
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.html { redirect_to article_path(@article) }
