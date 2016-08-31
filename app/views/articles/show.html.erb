@@ -19,8 +19,10 @@
             <%= render @article.tags %>
             <hr>
             <div id="comments">
-                <%= render 'comments/show' %>
+                <%= render @article.comments %>
             </div>
+            <br>
+            <%= render 'comments/form' %>
         </div>
     </div>
 </div>

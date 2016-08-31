@@ -1,14 +1,10 @@
-<h3><%= @article.comments.count %> Comments</h3>
-<% @article.comments.each do |comment| %>
-    <div class="well">
-        <% if comment.commenter? %>
-        <h4><%= link_to comment.user.name, profile_path(comment.user.id)%></h4><br>
-        <% else %>
-        <h4><%= comment.email%></h4><br>
-        <% end %>
-        <p><%= comment.body %></p>
-        <p><%= time_ago_in_words(comment.created_at) %> ago</p>
-    </div>
-    <br>
-<% end %>
-<%= render 'comments/form' %>
+<h3><%=comments.count %> Comments</h3>
+<div class="well">
+    <% if comments.commenter? %>
+    <h4><%= link_to comment.user.name, profile_path(comments.user.id)%></h4><br>
+    <% else %>
+    <h4><%= comments.email%></h4><br>
+    <% end %>
+    <p><%= comments.body %></p>
+    <p><%= time_ago_in_words(comments.created_at) %> ago</p>
+</div>
