@@ -18,8 +18,9 @@
             <h4>Tags</h4>
             <%= render @article.tags %>
             <hr>
+            <h2><%= @article.comments.count %> Comments</h2>
             <div id="comments">
-                <%= render 'comments/show' %>
+                <%= render @article.comments %>
             </div>
             <br>
             <%= render 'comments/form' %>

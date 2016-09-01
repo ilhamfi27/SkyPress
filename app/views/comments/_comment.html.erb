@@ -1,0 +1,21 @@
+<%# comments.each do |comment| %>
+    <div class="well" id="comment_<%= comment.id %>">
+
+        <% if current_user.present? and comment.user_id == current_user.id or @article.user_id == current_user.id %>
+            <%= button_to [@article, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "close", remote: true do %>
+                <span aria-hidden="true">&times;</span>
+            <% end %>
+        <% end %>
+        
+        <% if comment.user_id? %>
+            <h4><%= link_to comment.user.name, profile_path(comment.user.id)%></h4><br>
+        <% else %>
+            <h4><%= comment.email%></h4><br>
+        <% end %>
+        
+        <p><%= comment.body %></p>
+        <p><%= time_ago_in_words(comment.created_at) %> ago</p>
+
+    </div>
+    <br>
+<%# end %>
