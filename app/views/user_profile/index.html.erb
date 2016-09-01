@@ -12,7 +12,7 @@
                     <li class="list-group-item"><h5>Gender: <%= @user_profile.gender %></h5></li>
                     <li class="list-group-item"><h5>Last Sign In: <%= time_ago_in_words(@user_profile.last_sign_in_at) %> ago</h5></li>
                     <% if @user_profile.link.present? %>
-                        <li class="list-group-item"><h5><%= link_to @user_profile.name, @user_profile.link %></h5></li>
+                        <li class="list-group-item"><h5><%= link_to "Facebook", @user_profile.link %></h5></li>
                     <%end%>
                 </ul>
             </div>
