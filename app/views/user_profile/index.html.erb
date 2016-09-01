@@ -1,30 +1,39 @@
 <div class="container">
     <div class="row profile-layout">
         <div class="col-md-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><%= @user_profile.name %>'s Profile</h3>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><%= @user_profile.name %>'s Profile</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><h5>Name: <%= @user_profile.name %></h5></li>
+                        <li class="list-group-item"><h5>Email: <%= @user_profile.email %></h5></li>
+                        <li class="list-group-item"><h5>Gender: <%= @user_profile.gender %></h5></li>
+                        <li class="list-group-item"><h5>Last Sign In: <%= time_ago_in_words(@user_profile.last_sign_in_at) %> ago</h5></li>
+                        <% if @user_profile.link.present? %>
+                            <li class="list-group-item"><h5><%= link_to "Facebook", @user_profile.link %></h5></li>
+                        <%end%>
+                    </ul>
+                </div>
             </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item"><h5>Name: <%= @user_profile.name %></h5></li>
-                    <li class="list-group-item"><h5>Email: <%= @user_profile.email %></h5></li>
-                    <li class="list-group-item"><h5>Gender: <%= @user_profile.gender %></h5></li>
-                    <li class="list-group-item"><h5>Last Sign In: <%= time_ago_in_words(@user_profile.last_sign_in_at) %> ago</h5></li>
-                    <% if @user_profile.link.present? %>
-                        <li class="list-group-item"><h5><%= link_to "Facebook", @user_profile.link %></h5></li>
-                    <%end%>
-                </ul>
-            </div>
-        </div>
         </div>
         <div class="col-md-8">
-        	<h2>Articles</h2>
-            <% @articles.each do |f|%>
-                <h2 class="article-title"><%= link_to f.title, f %></h2>
-                <p>Created at <%= time_ago_in_words(f.created_at) %> ago</p>
-                <hr>
-            <% end %>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><%= @user_profile.name %>'s Articles</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <% @articles.each do |f|%>
+                            <li class="list-group-item">
+                                <h3 class="article-title"><%= link_to f.title, f %></h3>
+                                <p>Created at <%= time_ago_in_words(f.created_at) %> ago</p>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
