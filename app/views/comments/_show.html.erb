@@ -1,6 +1,9 @@
 <h3><%= @article.comments.count %> Comments</h3>
 <% @article.comments.each do |comment| %>
     <div class="well">
+        <%= button_to [@article, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "close" do %>
+            <span aria-hidden="true">&times;</span>
+        <%end%>
         <% if comment.user_id? %>
         <h4><%= link_to comment.user.name, profile_path(comment.user.id)%></h4><br>
         <% else %>
