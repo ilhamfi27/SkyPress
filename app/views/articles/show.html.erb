@@ -11,7 +11,10 @@
 			<% end %>
             <h2 class="article-title"><%= @article.title %></h2>
             Author: <%= link_to @article.user.name, profile_path(@article.user.id)%>
-            <p>Created at <%= time_ago_in_words(@article.created_at) %> ago</p><br>
+            <p>Created at <%= time_ago_in_words(@article.created_at) %> ago
+            <% if @article.created_at != @article.updated_at %><br>
+            Updated at <%= time_ago_in_words(@article.updated_at) %> ago</p><br>
+            <% end %>
             <div class="article-body">
                 <%= raw(@article.body) %>
             </div>
