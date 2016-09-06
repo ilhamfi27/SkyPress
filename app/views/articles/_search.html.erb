@@ -1,0 +1,8 @@
+<% if @article.present? %>
+	<h2>Search Result</h2>
+	<ul>
+	  <% @article.each do |post| %>
+			<li><%= post.title  %></li>
+	  <% end %>
+	</ul>
+<% end %>

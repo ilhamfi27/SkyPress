@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.joins(:user).order('created_at DESC').page(params[:page]).per(10)
     end
+    @article = Article.search params[:search]
   end
 
   # GET /articles/1
@@ -65,7 +66,7 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article

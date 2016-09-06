@@ -21,7 +21,7 @@
             <h4>Tags</h4>
             <%= render @article.tags %>
             <hr>
-            <h2><%= @article.comments.count %> Comments</h2>
+            <h2 id="count_comments"><%= @article.comments.count %> Comments</h2>
             <div id="comments">
                 <%= render @article.comments %>
             </div>

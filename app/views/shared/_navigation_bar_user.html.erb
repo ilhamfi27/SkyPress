@@ -22,6 +22,10 @@
           </ul>
         </li>
       </ul>
+      <%= form_tag search_path, method: :get, class:"navbar-form navbar-left" do %>
+        <%= text_field_tag :search, params[:search], class:"form-control" %>
+        <%= submit_tag "Search", class:"btn btn-default", :name => nil %> 
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>

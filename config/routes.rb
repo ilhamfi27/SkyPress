@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments#, only:[:show, :index, :new]
   end
+  get '/articles/', to: 'articles#index', as: 'search'
   resources :tags, only:[:index, :show]
   get '/profile/:id', to: 'user_profile#index', as: 'profile'
   root 'landing_page#index'
